@@ -1,5 +1,7 @@
 import { Component } from 'react';
-import css from './App.module.css';
+import { ContactForm } from './ContactForm/ContactForm';
+import { Filter } from './Filter/Filter';
+import { ContactList } from './ContactList/ContactList';
 
 export class App extends Component {
   state = {
@@ -7,7 +9,17 @@ export class App extends Component {
     filter: '',
   };
 
+  formSubmitHandler = data => {};
   render() {
-    return <div className={css.bodyApp}>React homework template</div>;
+    return (
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm onSubmit={this.formSubmitHandler} />
+
+        <h2>Contacts</h2>
+        <Filter />
+        <ContactList />
+      </div>
+    );
   }
 }
